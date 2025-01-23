@@ -1,0 +1,8 @@
+## Interface: 110007
+## Title: OnlyMinimap
+## IconTexture: Interface\AddOns\OnlyMinimap\images\icon.tga
+## Notes: Keybind to hide the Default UI except for the minimap.
+## Author: Eyevou
+## Version: 003
+
+main.lua

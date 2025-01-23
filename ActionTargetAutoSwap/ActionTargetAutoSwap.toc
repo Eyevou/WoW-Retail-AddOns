@@ -1,0 +1,14 @@
+## Interface: 110007
+## Title: Action Target Auto Swap
+## Notes: Automatically changes to Action Targeting when inside of a dungeon!
+## Author: Eyevou
+## Version: 006
+## IconTexture: Interface\AddOns\ActionTargetAutoSwap\Images\icon.tga
+
+## Add Locale Information Below
+Locale/enUS.lua
+Locale/enGB.lua
+Locale/deDE.lua
+
+## Main Content
+main.lua
