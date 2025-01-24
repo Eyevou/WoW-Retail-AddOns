@@ -9,5 +9,5 @@
 <code>     </code> An AddOn that allows you to quickly re-enter the LFG queue and fine a new group. Supports PvP, PvE, Pet Battles.<p>
 ▶ FPS Always: https://curseforge.com/wow/addons/fps-always/files<br>
 <code>     </code> An AddOn that always shows the default FPS meter whenever you log in.<p>
-▶ Freemium: https://.curseforge.com/wow/addons/freemium/files<br>
+▶ Freemium: https://curseforge.com/wow/addons/freemium/files<br>
 <code>     </code> An AddOn that is meant to get rid of the annoyances and "buy now" ads in game while using a freebie account.<p>
