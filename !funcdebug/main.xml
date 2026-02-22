@@ -1,0 +1,310 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+	..\FrameXML\UI.xsd">
+	<Frame name="funcdebug_Frame" toplevel="true" frameStrata="MEDIUM" enableMouse="true" hidden="true" parent="UIParent" enableKeyboard="true">
+		<Size>
+			<AbsDimension x="0" y="0"/>
+		</Size>
+		<Anchors>
+			<Anchor point="RIGHTCENTER"/>
+		</Anchors>
+		<Frames>
+			<Button name="funcdebug_ReloadUI" inherits="UIPanelButtonTemplate" text="ReloadUI">
+				<Size>
+					<AbsDimension x="100" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="PlayerFrame">
+						<Offset>
+							<AbsDimension x="55" y="-5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						ReloadUI()
+					</OnClick>
+				</Scripts>
+			</Button>
+			<CheckButton name="funcdebug_SoundCheck" inherits="ChatConfigCheckButtonTemplate">
+				<Size>
+					<AbsDimension x="25" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_ReloadUI">
+						<Offset>
+							<AbsDimension x="-60" y="2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				<OnLoad>
+					if (GetCVar("Sound_EnableAllSound")) == "1" then
+						funcdebug_SoundCheck:SetChecked(true)
+					end
+				</OnLoad>
+					<OnClick>
+						if GetCVar("Sound_EnableAllSound") == "1" then
+							SetCVar("Sound_EnableAllSound",0)
+						else
+							SetCVar("Sound_EnableAllSound",1)
+						end
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="funcdebug_DisplayLUA" inherits="ChatConfigCheckButtonTemplate">
+				<Size>
+					<AbsDimension x="25" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_ReloadUI">
+						<Offset>
+							<AbsDimension x="-60" y="20"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				<OnLoad>
+					if (GetCVar("scriptErrors")) == "1" then
+						funcdebug_DisplayLUA:SetChecked(true)
+					end
+				</OnLoad>
+					<OnClick>
+						if GetCVar("scriptErrors") == "1" then
+							SetCVar("scriptErrors",0)
+						else
+							SetCVar("scriptErrors",1)
+						end
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<Button name="funcdebug_LeavePartyX" inherits="UIPanelButtonTemplate" text="X">
+				<Size>
+					<AbsDimension x="20" y="20"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_ReloadUI">
+						<Offset>
+							<AbsDimension x="60" y="-25"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						C_PartyInfo.LeaveParty()
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+		</Scripts>
+	</Frame>
+
+<Frame name="funcdebug_ConvertToRaidButton" toplevel="true" frameStrata="HIGH" enableMouse="true" hidden="true" parent="LFGListFrame" enableKeyboard="true">
+		<Size>
+			<AbsDimension x="0" y="0"/>
+		</Size>
+		<Anchors>
+			<Anchor point="RIGHTCENTER"/>
+		</Anchors>
+		<Frames>
+			<Button name="funcdebug_MakeRaidO" inherits="UIPanelButtonTemplate" text="Convert?">
+				<Size>
+					<AbsDimension x="90" y="20"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="LFGListFrame">
+						<Offset>
+							<AbsDimension x="80" y="-125"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						C_PartyInfo.ConvertToRaid()
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+		</Scripts>
+	</Frame>
+
+	<Frame name="funcdebug_Troupe" toplevel="true" frameStrata="LOW" enableMouse="true" hidden="true" parent="UIParent" enableKeyboard="true">
+		<Size>
+			<AbsDimension x="1" y="1"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UIParent">
+				<Offset>
+					<AbsDimension x="500" y="150"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="FuncTroupe_OptionsFrameHeader" file="Interface\DialogFrame\UI-DialogBox-Header" setAllPoints="true">
+					<Size>
+						<AbsDimension x="350" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="65"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<FontString inherits="GameFontNormal" text="Theater Troupe">
+					<Anchors>
+						<Anchor point="TOP" relativeTo="FuncTroupe_OptionsFrameHeader">
+							<Offset>
+								<AbsDimension x="0" y="-14"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer level="BACKGROUND">
+				<Texture name="FuncTroupe_OptionsFrameHeader2" file="Interface\DialogFrame\UI-DialogBox-Header">
+					<Size>
+						<AbsDimension x="450" y="300"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="60"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<FontString inherits="GameFontNormal" text="">
+					<Anchors>
+						<Anchor point="TOP" relativeTo="FuncTroupe_OptionsFrameHeader2">
+							<Offset>
+								<AbsDimension x="0" y="-14"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="funcdebug_flayers" inherits="UIPanelButtonTemplate" text="Flayers">
+				<Size>
+					<AbsDimension x="100" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_Troupe">
+						<Offset>
+							<AbsDimension x="-50" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						SendChatMessage("Flayers","RAID_WARNING")
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="funcdebug_kobolds" inherits="UIPanelButtonTemplate" text="Kobolds">
+				<Size>
+					<AbsDimension x="100" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_flayers">
+						<Offset>
+							<AbsDimension x="0" y="-23"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						SendChatMessage("Kobolds","RAID_WARNING")
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="funcdebug_deathcaps" inherits="UIPanelButtonTemplate" text="Deathcaps">
+				<Size>
+					<AbsDimension x="100" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_kobolds">
+						<Offset>
+							<AbsDimension x="0" y="-23"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						SendChatMessage("Deathcaps","RAID_WARNING")
+					</OnClick>
+				</Scripts>
+			</Button>
+
+			<Button name="funcdebug_extra" inherits="UIPanelButtonTemplate" text="Nerubian">
+				<Size>
+					<AbsDimension x="100" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_Troupe">
+						<Offset>
+							<AbsDimension x="50" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						SendChatMessage("Nerubian Flyers","RAID_WARNING")
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="funcdebug_extra2" inherits="UIPanelButtonTemplate" text="Dwarves">
+				<Size>
+					<AbsDimension x="100" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_flayers">
+						<Offset>
+							<AbsDimension x="100" y="-23"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						SendChatMessage("Dwarves","RAID_WARNING")
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="funcdebug_extra3" inherits="UIPanelButtonTemplate" text="Thank">
+				<Size>
+					<AbsDimension x="100" y="21"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="funcdebug_kobolds">
+						<Offset>
+							<AbsDimension x="100" y="-23"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						SendChatMessage("Good job, everyone!", "RAID_WARNING")
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForDrag("LeftButton")
+			</OnLoad>
+			<OnDragStart>
+				if not self.isLocked then
+					self:StartMoving()
+				end
+			</OnDragStart>
+			<OnDragStop>
+				self:StopMovingOrSizing()
+			</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>

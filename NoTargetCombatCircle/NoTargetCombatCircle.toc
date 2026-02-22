@@ -1,0 +1,7 @@
+## Interface: 120001
+## Title: NoTargetCombatCircle
+## Notes: A Circle will appear around you if you are in combat and have no target
+## Author: Eyevou
+## Version: 001
+main.xml
+main.lua

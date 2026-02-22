@@ -1,0 +1,7 @@
+## Interface: 120001
+## Title: !funcdebug
+## Notes: Development debug tool
+## Author: Eyevou
+## Version: 001
+main.xml
+main.lua
