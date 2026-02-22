@@ -2,6 +2,6 @@
 ## Title: NoTargetCombatCircle
 ## Notes: A Circle will appear around you if you are in combat and have no target
 ## Author: Eyevou
-## Version: 001
+## Version: 002
 main.xml
 main.lua
