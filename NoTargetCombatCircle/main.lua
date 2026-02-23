@@ -44,7 +44,9 @@ function NoTargetCombatCircle_OnUpdate()
 end
 
 function NoTargetCombatCircle_Interrupt_Check()
-	C_Timer.NewTimer(1.5, function() NoTargetCombatCircleFrame:Show() end)
+	if not IsInInstance() then
+		C_Timer.NewTimer(1.5, function() NoTargetCombatCircleFrame:Show() end)
+	end
 end
 
 f:SetScript("OnEvent", NoTargetCombatCircle_OnEvent)

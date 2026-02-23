@@ -1,6 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 	..\FrameXML\UI.xsd">
-	<Frame name="NoTargetCombatCircleFrame" toplevel="true" frameStrata="LOW" enableMouse="true" hidden="true" parent="UIParent" enableKeyboard="true">
+	<Frame name="NoTargetCombatCircleFrame_OLD" toplevel="true" frameStrata="LOW" enableMouse="true" hidden="true" parent="UIParent" enableKeyboard="true">
 		<Size>
 			<AbsDimension x="1" y="1"/>
 		</Size>
@@ -13,7 +13,7 @@
 		</Anchors>
 		<Layers>
 			<Layer level="ARTWORK">
-				<Texture name="NoTargetCombatCircleFrame_circle" file="Interface\PLAYERFRAME\DK-Blood-Rune-CDFill" setAllPoints="true">
+				<Texture name="NoTargetCombatCircleFrame_circle" file="Interface\Delves\delves-companion-progress-fill-blue" setAllPoints="true">
 					<Size>
 						<AbsDimension x="500" y="500"/>
 					</Size>
@@ -21,6 +21,35 @@
 						<Anchor point="TOP">
 							<Offset>
 								<AbsDimension x="0" y="220"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>
+
+		<Frame name="NoTargetCombatCircleFrame" toplevel="true" frameStrata="LOW" enableMouse="true" hidden="true" parent="UIParent" enableKeyboard="true">
+		<Size>
+			<AbsDimension x="1" y="1"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativeTo="UIParent">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="NoTargetCombatCircleFrame_circle1" file="Interface\FriendsFrame\ReportSpamIcon" setAllPoints="true">
+					<Size>
+						<AbsDimension x="65" y="65"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="-100" y="75"/>
 							</Offset>
 						</Anchor>
 					</Anchors>
