@@ -1,12 +1,19 @@
 local f = CreateFrame("Frame", "NoTargetCombatCircleFrame", UIParent)
 f:RegisterEvent("PLAYER_REGEN_DISABLED")
 f:RegisterEvent("PLAYER_REGEN_ENABLED")
+f:RegisterEvent("PLAYER_SOFT_ENEMY_CHANGED")
+
+-- UnitIsDead("target") -- True/False
+-- IsInInstance() -- True/False
+-- UnitExists("softenemy")
+-- UnitExists("anyenemy")
+-- isUsable, useError = C_MountJournal.GetMountUsabilityByID(mountID, checkIndoors)
 
 local function NoTargetCombatCircle_OnEvent(self, event, ...)
 	if event == "PLAYER_REGEN_DISABLED" then
-		if C_CVar.GetCVar("SoftTargetEnemy") == "0" then
+		if C_CVar.GetCVar("SoftTargetEnemy") ~= "3" then
 			C_CVar.SetCVar("SoftTargetEnemy","3")
-		--	print("|cffFFC125Action Targeting is now:|r |cff00ff00ENABLED!|r")
+			--print("|cffFFC125Action Targeting is now:|r |cff00ff00ENABLED!|r")
 		end
 		NoTargetCombatCircle_combat_state_check = true
 	end
@@ -16,37 +23,38 @@ local function NoTargetCombatCircle_OnEvent(self, event, ...)
 		NoTargetCombatCircleFrame:Hide()
 		if C_CVar.GetCVar("SoftTargetEnemy") == "3" then
 			C_CVar.SetCVar("SoftTargetEnemy","0")
-		--	print("|cffFFC125Action Targeting is now:|r |cffFF0000DISABLED!|r")
+			--print("|cffFFC125Action Targeting is now:|r |cffFF0000DISABLED!|r")
 		end
 	end
 end
 
 -- TargetFrameXML
 function NoTargetCombatCircle_OnUpdate()
-
-	if NoTargetCombatCircle_combat_state_check == true then
-		if UnitExists("target") then
-			NoTargetCombatCircle_combat_state = true
+	if not IsMounted() then
+		if NoTargetCombatCircle_combat_state_check then
+			if UnitExists("anyenemy") then
+				NoTargetCombatCircle_combat_state = true
+			end
 		end
-	end
 
-	if NoTargetCombatCircle_combat_state then
-		if UnitExists("target") == false then
-			NoTargetCombatCircle_Interrupt_Check()
+		if NoTargetCombatCircle_combat_state then
+			if UnitIsDead("target") == false then
+				if UnitExists("target") == false then
+					NoTargetCombatCircle_Interrupt_Check()
+				else
+					NoTargetCombatCircleFrame:Hide()
+				end
+			end
 		else
-			NoTargetCombatCircleFrame:Hide()
-		end
-	else
-		if NoTargetCombatCircleFrame:IsShown() then
-			NoTargetCombatCircleFrame:Hide()
+			if NoTargetCombatCircleFrame:IsShown() then
+				NoTargetCombatCircleFrame:Hide()
+			end
 		end
 	end
 end
 
 function NoTargetCombatCircle_Interrupt_Check()
-	if not IsInInstance() then
-		C_Timer.NewTimer(1.5, function() NoTargetCombatCircleFrame:Show() end)
-	end
+	C_Timer.NewTimer(1.5, function() NoTargetCombatCircleFrame:Show() end)
 end
 
 f:SetScript("OnEvent", NoTargetCombatCircle_OnEvent)
