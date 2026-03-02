@@ -75,14 +75,14 @@ end
 	end]]
 
 function NoTargetCombatCircle_Interrupt_Check()
-	print("NoTargetCombatCircle_Interrupt_Check()")
+	--print("NoTargetCombatCircle_Interrupt_Check()")
 	C_Timer.NewTimer(1.5, function() NoTargetCombatCircleFrame:Show() end)
 end
 
 function NoTargetCombatCircle_Hide()
 	if NoTargetCombatCircleFrame:IsShown() then
 		NoTargetCombatCircleFrame:Hide()
-		print("Hide")
+		--print("Hide")
 	end
 end
 
