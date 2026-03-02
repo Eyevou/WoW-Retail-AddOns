@@ -2,6 +2,7 @@
 ## Title: NoTargetCombatCircle
 ## Notes: A Circle will appear around you if you are in combat and have no target
 ## Author: Eyevou
-## Version: 002
+## Version: 001
+## IconTexture: Interface\AddOns\NoTargetCombatCircle\Images\icon.tga
 main.xml
 main.lua

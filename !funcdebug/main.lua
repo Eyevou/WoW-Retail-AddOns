@@ -190,11 +190,11 @@ local function funcdebug_Frame_OnEvent(self, event, ...)
 	end
 	if event == "PLAYER_LOSES_VEHICLE_DATA" or event == "PET_BATTLE_OVER" then
 		funcdebug_Frame:Show()
-		print("PLAYER_LOSES_VEHICLE_DATA")
+		--print("PLAYER_LOSES_VEHICLE_DATA")
 	end
 	if event == "PLAYER_GAINS_VEHICLE_DATA" or event == "PET_BATTLE_OPENING_START" then
 		funcdebug_Frame:Hide()
-		print("PLAYER_GAINS_VEHICLE_DATA")
+		--print("PLAYER_GAINS_VEHICLE_DATA")
 	end
 end
 
