@@ -5,18 +5,18 @@ f:RegisterEvent("PLAYER_SOFT_ENEMY_CHANGED")
 
 local function NoTargetCombatCircle_OnEvent(self, event, ...)
 	if event == "PLAYER_REGEN_DISABLED" then
-		if C_CVar.GetCVar("SoftTargetEnemy") ~= "3" then
-			C_CVar.SetCVar("SoftTargetEnemy","3")
-		end
+		--if C_CVar.GetCVar("SoftTargetEnemy") ~= "3" then
+		--	C_CVar.SetCVar("SoftTargetEnemy","3")
+		--end
 		NoTargetCombatCircle_combat_state_check = true
 	end
 	if event == "PLAYER_REGEN_ENABLED" then
 		NoTargetCombatCircle_combat_state = false
 		NoTargetCombatCircle_combat_state_check = false
 		NoTargetCombatCircleFrame:Hide()
-		if C_CVar.GetCVar("SoftTargetEnemy") == "3" then
-			C_CVar.SetCVar("SoftTargetEnemy","0")
-		end
+		--if C_CVar.GetCVar("SoftTargetEnemy") == "3" then
+		--	C_CVar.SetCVar("SoftTargetEnemy","0")
+		--end
 	end
 end
 
@@ -34,7 +34,7 @@ function NoTargetCombatCircle_OnUpdate()
 			NoTargetCombatCircle_Hide()
 		end
 
-		if UnitExists("target") then
+		if UnitExists("anyenemy") then
 			NoTargetCombatCircle_Hide()
 		end
 
